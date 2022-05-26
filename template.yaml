@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: SAM Template for test-sam-python-tochiji-2022
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: test-sam-python-tochiji-2022
+      CodeUri: function/
+      Handler: function.lambda_handler
+      Runtime: python3.9
+
+Outputs:
+  Function:
+    Description: "test-sam-python-tochiji-2022 Lambda Function ARN"
+    Value: !GetAtt Function.Arn
+  FunctionIamRole:
+    Description: "Implicit IAM Role created fortest-sam-python-tochiji-2022s function"
+    Value: !GetAtt FunctionRole.Arn
